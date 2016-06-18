@@ -9,6 +9,7 @@ from twisted.web.resource import Resource
 from twisted.internet import reactor
 
 import json
+import sys
 
 
 def make_error_message(reason):
@@ -42,6 +43,9 @@ class GetRating(Resource):
 
 
 def run():
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+
     root = Resource()
     root.putChild("rating", GetRating())
 

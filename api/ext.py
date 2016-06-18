@@ -29,7 +29,7 @@ def get_transit_time_to_center(departure_point):
     }
 
     if duration_data['status'] == 'OK':
-        ret['driveToCenterTime'] = \
+        ret['timeToCenter'] = \
             duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
 
     return ret
