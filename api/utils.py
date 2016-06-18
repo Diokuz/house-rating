@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import config
-import datetime
 import time
 
 
@@ -26,7 +25,8 @@ def check_config():
         'DB_RETRY_COUNT': int,
         'DB_TIMEOUT': int,
         'DEBUG': bool,
-        'GOOGLE_API_KEY': str
+        'GOOGLE_API_KEY': str,
+        'DOUBLEGIS_API_KEY': str
     }
 
     def check_config_var(var_name, var_type):

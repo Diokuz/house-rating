@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import config
+import ext
 
 from twisted.web.server import Site
 from twisted.web.resource import Resource
@@ -15,12 +16,15 @@ def make_error_message(reason):
 
 class GetRating(Resource):
     def render_GET(self, request):
-        request.setHeader('Access-Control-Allow-Origin', '*')
-        request.setHeader('Content-Type', 'application/json; charset=UTF-8')
 
         try:
             house_id = int(request.args['id'][0])
             print 'get rating for house #' + str(house_id)
+
+            request.setHeader('Access-Control-Allow-Origin', '*')
+            request.setHeader('Content-Type', 'application/json; charset=UTF-8')
+
+            return json.dumps(ext.get_house_info_by_id(house_id))
             # unused:
             # latitude = float(request.args['latitude'][0])
             # longitude = float(request.args['longitude'][0])
