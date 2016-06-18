@@ -15,6 +15,7 @@ def make_error_message(reason):
 
 class GetRating(Resource):
     def render_GET(self, request):
+        request.setHeader('Access-Control-Allow-Origin', '*')
         try:
             house_id = int(request.args['id'][0])
             print 'get rating for house #' + str(house_id)
