@@ -8,3 +8,5 @@ export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 
 export const SEND_RATING_REQUEST = 'SEND_RATING_REQUEST';
 export const SET_RESULT = 'SET_RESULT';
+
+export const SET_SUGGEST = 'SET_SUGGEST';

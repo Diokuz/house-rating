@@ -1,4 +1,4 @@
-import { SEND_RATING_REQUEST, SET_RESULT } from '../constants/ActionTypes';
+import { SEND_RATING_REQUEST, SET_RESULT, SET_SUGGEST } from '../constants/ActionTypes';
 
 export function sendRequest(id) {
   return {
@@ -8,9 +8,15 @@ export function sendRequest(id) {
 }
 
 export function setResult(data) {
-  console.log('data', data);
   return {
     type: SET_RESULT,
     data
+  };
+}
+
+export function setSuggest(suggest) {
+  return {
+    type: SET_SUGGEST,
+    suggest
   };
 }

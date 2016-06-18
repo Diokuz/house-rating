@@ -9,7 +9,7 @@ $accent-red: #dd6464;
 
 body {
   background-color: $main-bg-color;
-  color: $accent-black;
+  color: white;
   display: flex;
   justify-content: center;
   font-family: 'Raleway', sans-serif;
@@ -90,7 +90,7 @@ footer {
 }
 
 .plate {
-  max-width: 680px;
+  width: 680px;
   padding: 20px 12px;
   background: rgba(0, 0, 0, .5);
   position: fixed;
@@ -110,7 +110,7 @@ footer {
 }
 
 .finder__input-wrapper {
-  margin: 8px 12px;
+  margin: 8px 0;
 }
 .finder__input {
   display: block;
@@ -121,6 +121,14 @@ footer {
   border-radius: 5px;
   border: 0;
   width: 100%;
+}
+
+.suggest {
+  padding: 12px;
+  background: black;
+}
+.suggest__element {
+  cursor: pointer;
 }
 
 .card {
