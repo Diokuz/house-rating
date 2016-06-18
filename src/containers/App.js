@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
+import * as RatingActions from '../actions/RatingActions';
 import Counter from '../components/Counter';
-import Footer from '../components/Footer';
+import Plate from '../components/Plate';
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -13,20 +14,17 @@ import Footer from '../components/Footer';
 export default class App extends Component {
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { counter, actions } = this.props;
+    const { rating, actions } = this.props;
     return (
       <div className="main-app-container">
-        <div className="main-app-nav">House rating</div>
-        {/* notice that we then pass those unpacked props into the Counter component */}
-        <Counter counter={counter} actions={actions} />
-        <Footer />
+        <Plate actions={actions} rating={rating} />
       </div>
     );
   }
 }
 
 App.propTypes = {
-  counter: PropTypes.number.isRequired,
+  rating: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
@@ -37,7 +35,8 @@ App.propTypes = {
  */
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    counter: state.counter,
+    rating: state.rating
   };
 }
 
@@ -51,7 +50,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    actions: bindActionCreators(RatingActions, dispatch)
   };
 }
 

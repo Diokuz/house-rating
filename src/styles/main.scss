@@ -78,3 +78,49 @@ footer {
     color: $accent-red;
   }
 }
+
+.plate {
+  max-width: 680px;
+  padding: 20px 12px;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.header {
+  padding: 10px;
+}
+.header__title {
+  text-transform: uppercase;
+  color: white;
+  font: 400 20px Verdana;
+}
+
+.finder__input-wrapper {
+  margin: 8px 12px;
+}
+.finder__input {
+  display: block;
+  box-sizing: border-box;
+  padding: 12px;
+  background: rgba(0, 0, 0, .8);
+  color: white;
+  border-radius: 5px;
+  border: 0;
+  width: 100%;
+}
+
+.rating {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 2px;
+  width: 1000px;
+}
+.rating__value {
+  height: 20px;
+  background: #fc9;
+  transition: all .3s ease-out;
+}
