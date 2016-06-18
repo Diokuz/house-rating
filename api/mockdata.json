@@ -1,59 +1,60 @@
 {
-    total: 6.5,
+    "total": 6.0,
 
-    userRating: {
-        rates: [
+    "userRating": {
+        "rates": [
             {
-                comment: "awesome",
-                rating: 9.9
+                "comment": "awesome",
+                "rating": 9.9
             }
-        ]
-        average: 9.9
+        ],
+        "average": 9.9
     },
     
-    infrastructure: {
-        details: {
-            shops: 77,
-            banks: 49
+    "infrastructure": {
+        "details": {
+            "shops": 77,
+            "banks": 49
         },
-        rating: 8.9
+        "rating": 8.9
     },
 
-    auto: {
-        details: {
-            driveToCenterTime: 15,
-            driveToCenterInTraffic: 45,
+    "auto": {
+        "details": {
+            "driveToCenterTime": 15,
+            "driveToCenterInTraffic": 45
         },
-        rating: 8.9
+        "rating": 8.9
     },
-    transport: {
-        details: {
-            nearestMetroStation: 
+    "transport": 
+    {
+        "details": {
+            "nearestMetroStation": 
             {
-                name: "Курская", 
-                location: 12.345,45.678,
-                walkTime: 5
+                "name": "Курская", 
+                "location": [12.345, 45.678],
+                "walkTime": 5
             },
-            nearestBusStop: null,
-            timeToCenter: 25, 
+            "nearestBusStop": null,
+            "timeToCenter": 25 
         },
-        rating: 8.9
+        "rating": 8.9
     },
-    education: {
-        details: {
+    "education": {
+        "details": {
         },
-        rating: 8.9
+        "rating": 8.9
     },
-    apartments: {
-        details: {
-            averageRent: 30000,
-            averageCost: 10000000
+    "apartments": {
+        "details": {
+            "averageRent": 30000,
+            "averageCost": 10000000
         },
-        rating: 8.9
+        "rating": 8.9
     },
-    ecology: {
-        details: {
+    "ecology": {
+        "details": {
         },
-        rating: 8.9
+        "rating": 8.9
     }
 }
