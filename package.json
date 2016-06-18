@@ -46,9 +46,11 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
+    "leaflet": "git://github.com/Leaflet/Leaflet.git#v1.0.0-beta.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.1.1",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "superagent": "^2.0.0"
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import superagent from 'superagent';
 
 const apiUrl = 'http://139.59.141.142:8088/rating?id=';
 
@@ -10,12 +11,9 @@ export default class Suggest extends Component {
   handleClick(id) {
     this.props.actions.sendRequest(id);
 
-    fetch(`${apiUrl}${id}`)
-      .then(res => res.json())
-      .then(json => {
-        this.props.actions.setResult(json.total);
-      }).catch(err => {
-        this.props.actions.setResult(13);
+    superagent.get(`${apiUrl}${id}`)
+      .end((err, res) => {
+        this.props.actions.setResult(res.body);
       });
   }
 

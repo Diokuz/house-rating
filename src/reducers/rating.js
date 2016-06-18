@@ -1,7 +1,6 @@
 import { SEND_RATING_REQUEST, SET_RESULT, SET_SUGGEST } from '../constants/ActionTypes';
 
 export default function counter(state = {}, action) {
-    console.log('action', action);
     switch (action.type) {
         case SEND_RATING_REQUEST:
             return {
