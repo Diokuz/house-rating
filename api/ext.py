@@ -72,7 +72,7 @@ def get_house_info_by_id(id):
 
     if data['response_code'] != '200':
         raise Exception('Could not fetch house info by id: ' +
-                        data['error']['message'])
+                        str(data))
 
     ret['address'] = data['result'][0]['name']
     ret['coords'] = get_coords(data['result'][0]['centroid'])
@@ -87,11 +87,19 @@ def get_house_info_by_id(id):
         'details': get_transit_time_to_center(strcoords)
     }
 
-    ret['transport']['nearestMetroStation'] = \
-        storage.get_nearest_metro_station([ret['coords'][1], ret['coords'][0]])
+    coords_reversed = [ret['coords'][1], ret['coords'][0]]
+    station_info = storage.get_nearest_metro_station(coords_reversed)
+    ret['transport']['details']['nearestMetroStation'] = station_info['station']
+    ret['apartments'] = {
+        'details': station_info['prices']
+    }
+
+    ret['transport']['details']['nearestBusStop'] = \
+        storage.get_nearest_bus_stop(coords_reversed)
 
     return ret
 
 
 if __name__ == '__main__':
+    # test
     print get_house_info_by_id(4504235282688248)

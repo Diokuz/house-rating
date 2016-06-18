@@ -36,9 +36,9 @@ class GetRating(Resource):
             print e
             request.setResponseCode(400)
             return make_error_message('GET argument "id" must be integer')
-        except KeyError:
+        except KeyError as e:
             request.setResponseCode(400)
-            return make_error_message('GET argument "id" is required')
+            return make_error_message(str(e))
         except:
             request.setResponseCode(500)
             return make_error_message('Internal server error')
