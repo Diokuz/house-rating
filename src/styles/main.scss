@@ -79,6 +79,16 @@ footer {
   }
 }
 
+.map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url(http://tile0.maps.2gis.com/tiles?x=2476&y=1280&z=12&v=1);
+}
+
 .plate {
   max-width: 680px;
   padding: 20px 12px;
@@ -111,6 +121,14 @@ footer {
   border-radius: 5px;
   border: 0;
   width: 100%;
+}
+
+.card {
+  background: #050;
+  min-height: 10px;
+  border-radius: 5px;
+  padding: 12px;
+  color: white;
 }
 
 .rating {

@@ -12,13 +12,14 @@ export default class Finder extends Component {
 
     this.props.actions.sendRequest('building_id');
 
-    fetch(apiUrl).then(res => {
-      console.log('res', res);
-      this.props.actions.setResult(45);
-    }).catch(err => {
-      this.props.actions.setResult(13);
-    });
-  }
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(json => {
+        this.props.actions.setResult(json.total);
+      }).catch(err => {
+        this.props.actions.setResult(13);
+      });
+    }
 
   render() {
     return (

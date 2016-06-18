@@ -5,6 +5,7 @@ import * as CounterActions from '../actions/CounterActions';
 import * as RatingActions from '../actions/RatingActions';
 import Counter from '../components/Counter';
 import Plate from '../components/Plate';
+import MapComponent from '../components/Map';
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -18,6 +19,7 @@ export default class App extends Component {
     return (
       <div className="main-app-container">
         <Plate actions={actions} rating={rating} />
+        <MapComponent />
       </div>
     );
   }
