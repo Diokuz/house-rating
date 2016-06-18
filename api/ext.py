@@ -69,7 +69,6 @@ def get_house_info_by_id(id):
                          'id': id,
                          'version': '1.3'}).json()
 
-    print data
     if data['response_code'] != '200':
         raise Exception('Could not fetch house info by id: ' +
                         data['error']['message'])
