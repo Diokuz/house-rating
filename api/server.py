@@ -16,7 +16,7 @@ def make_error_message(reason):
 class GetRating(Resource):
     def render_GET(self, request):
         try:
-            house_id = int(request.args['maxn'][0])
+            house_id = int(request.args['id'][0])
             print 'get rating for house #' + str(house_id)
             # unused:
             # latitude = float(request.args['latitude'][0])
