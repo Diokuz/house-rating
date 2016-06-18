@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import storage
 import config
 import utils
 import googlemaps
@@ -85,6 +86,9 @@ def get_house_info_by_id(id):
     ret['transport'] = {
         'details': get_transit_time_to_center(strcoords)
     }
+
+    ret['transport']['nearestMetroStation'] = \
+        storage.get_nearest_metro_station([ret['coords'][1], ret['coords'][0]])
 
     return ret
 

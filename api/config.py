@@ -6,10 +6,10 @@
 # Please feel free to modify them so they fit your configuration.
 ###
 
-DB_HOST = 'localhost'
+DB_HOST = '139.59.141.142'
 DB_PORT = 27017
-DB_NAME = 'taxi'
-DB_COLLECTION = 'cars'
+DB_NAME = 'house_rating'
+DB_COLLECTION = ''
 DB_TIMEOUT = 5
 DB_RETRY_COUNT = 3
 

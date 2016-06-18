@@ -27,7 +27,7 @@ class GetRating(Resource):
             request.setHeader('Content-Type', 'application/json; charset=UTF-8')
 
             return bytes(json.dumps(ext.get_house_info_by_id(house_id),
-                              ensure_ascii=False, encoding='utf8'))
+                                    ensure_ascii=False, encoding='utf8'))
             # unused:
             # latitude = float(request.args['latitude'][0])
             # longitude = float(request.args['longitude'][0])
