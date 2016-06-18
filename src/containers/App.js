@@ -16,10 +16,13 @@ export default class App extends Component {
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { rating, actions } = this.props;
+    const data = rating && rating.data || {};
+    const coords = data.coords;
+
     return (
       <div className="main-app-container">
         <Plate actions={actions} rating={rating} />
-        <MapComponent />
+        <MapComponent coords={coords} />
       </div>
     );
   }

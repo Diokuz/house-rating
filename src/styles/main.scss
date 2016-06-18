@@ -673,6 +673,9 @@ footer {
   padding: 14px 20px;
   text-transform: uppercase;
 }
+.card__header:empty {
+  display: none;
+}
 .card__body {
   background-image: linear-gradient(2deg, #b4ec51, #429321);
   border-radius: 5px;
