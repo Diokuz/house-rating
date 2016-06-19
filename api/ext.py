@@ -150,9 +150,14 @@ def get_house_info_by_id(lat, lng):
 
     coords_reversed = [lng, lat]
 
-    station_info = storage.get_nearest_metro_station(coords_reversed)
-    ret['transport']['nearestMetroStation'] = station_info['station']
-    ret['apartments'] = station_info['prices']
+    stations_info = storage.get_nearest_metro_stations(coords_reversed)
+    ret['transport']['nearestMetroStations'] = map(
+        lambda st: {'name': st['name'],
+                    'location': st['location'],
+                    'distance': st['distance'],
+                    'walkTime': st['walkTime']},
+        stations_info)
+    ret['apartments'] = stations_info[0]['prices']
 
     ret['transport']['nearestBusStop'] = \
         storage.get_nearest_bus_stop(coords_reversed)

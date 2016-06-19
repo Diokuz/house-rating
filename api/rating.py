@@ -7,7 +7,7 @@ def calc_rating(house_stats):
         (house_stats['auto']['driveToCenterTime'] is not None \
             and house_stats['auto']['driveToCenterTime'] <= 30),
         # 2. is metro station reachable by feet in 15 minutes?
-        (house_stats['transport']['nearestMetroStation']['walkTime'] <= 15),
+        (house_stats['transport']['nearestMetroStations'][0]['walkTime'] <= 15),
         # 3. is the place free of the noise sources (in the radius of 0.5 km)?
         (len(house_stats['ecology']['noises']) == 0),
         # 4. are there green plants around (y/n)?
