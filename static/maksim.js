@@ -78,6 +78,8 @@ function fillRatingCard(ratingData) {
         return getMetroInfo(i);
     }).join("");
 
+    $(".js-card-section-metro").html("");
+    $(".js-card-section-metro").append(metroHtml);
 
     if (schoolsArr.length) {
         $(".js-education-summary").parent().next(".fa").show();
@@ -93,7 +95,6 @@ function fillRatingCard(ratingData) {
         $(".js-card-section-edu").html("");
     }
 
-    $(".js-card-section-metro").append(metroHtml);
 
     if(ecology.plants && ecology.plants.length) {
         $(".js-ecology-summary").html(["по данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100 <span class='emodzi tree'></span>"])
