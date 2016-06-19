@@ -68,7 +68,7 @@ function fillRatingCard(ratingData) {
         " до м. \"",
         metros[0].name,
         "\", ",
-        '<span class="emodzi car"></span><span class="cl__red">' + auto.driveToCenterTime + ' мин. </span>',
+        '<span class="emodzi car"></span><span class="cl__red"> ' + auto.driveToCenterTime + ' мин. </span>',
         "до ТТК"
     ]);
     $(".js-traffic-info").html([auto.driveToCenterTime, " мин. до центра без пробок и ", auto.driveToCenterInTraffic, " мин. с пробками"]);
@@ -120,7 +120,7 @@ function fillRatingCard(ratingData) {
     $(".js-commodities-summary").html(["<span class='emodzi house'></span>  В 5 минутах ходьбы банков: ", comodoties.banks.length,
                                        ", аптек: ", comodoties.chemists.length,
                                        ", ресторанов: ", comodoties.restaurants.length,
-                                       ", супермаркетов: ", comodoties.supermarkets.length])
+                                       ", супермаркетов: ", comodoties.supermarkets.length]);
 
     $(".js-card-section-commodities").html("");
 
