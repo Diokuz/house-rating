@@ -81,7 +81,7 @@ def load_commodities(coordinates):
     try:
         data = requests.get(
             'http://catalog.api.2gis.ru/2.0/catalog/branch/list',
-            dict(key='ruvszz7964',
+            dict(key=config.DOUBLEGIS_API_KEY,
                  rubric_id='4503719886455157,4503719886455134,4503719886454945,' +
                            '4503719886454948,4503719886454991,4503719886455276',
                  region_id=32, sort='distance',
@@ -110,10 +110,10 @@ def load_commodities(coordinates):
         return ret
 
 
-def get_house_info_by_id(id):
+def get_house_info_by_id(lat, lng):
     """
-        Gets all the house info needed in our service.
-        Input: id — 2GIS building identifier.
+        Gets all the info needed in our service.
+        Input: latitude, longitude of the building.
         Sources: 2GIS, Google Maps, and our own awesome dataset.
     """
     def get_coords(centroid_str):
@@ -121,20 +121,21 @@ def get_house_info_by_id(id):
         return [float(values[2]), float(values[1])]
 
     ret = {}
-    assert(type(id) == int)
-    data = requests.get('http://catalog.api.2gis.ru/geo/get',
-                        {'key': config.DOUBLEGIS_API_KEY,
-                         'id': id,
-                         'version': '1.3'}).json()
+    assert(type(lat) is float)
+    assert(type(lng) is float)
+    # data = requests.get('http://catalog.api.2gis.ru/geo/get',
+    #                    {'key': config.DOUBLEGIS_API_KEY,
+    #                     'id': id,
+    #                     'version': '1.3'}).json()
 
-    if data['response_code'] != '200':
-        raise Exception('Could not fetch house info by id: ' +
-                        str(data))
+    # if data['response_code'] != '200':
+    #    raise Exception('Could not fetch house info by id: ' +
+    #                    str(data))
 
-    ret['address'] = data['result'][0]['name']
-    ret['coords'] = get_coords(data['result'][0]['centroid'])
+    # ret['address'] = data['result'][0]['name']
+    # ret['coords'] = get_coords(data['result'][0]['centroid'])
 
-    strcoords = str(ret['coords'][0]) + ',' + str(ret['coords'][1])
+    strcoords = str(lat) + ',' + str(lng)
 
     ret['auto'] = {
         'details': get_drive_time_to_center(strcoords)
@@ -144,7 +145,8 @@ def get_house_info_by_id(id):
         'details': get_transit_time_to_center(strcoords)
     }
 
-    coords_reversed = [ret['coords'][1], ret['coords'][0]]
+    coords_reversed = [lng, lat]
+
     station_info = storage.get_nearest_metro_station(coords_reversed)
     ret['transport']['details']['nearestMetroStation'] = station_info['station']
     ret['apartments'] = {

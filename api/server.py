@@ -21,17 +21,17 @@ class GetRating(Resource):
     def render_GET(self, request):
 
         try:
-            house_id = int(request.args['id'][0])
-            print 'get rating for house #' + str(house_id)
+            latitude = float(request.args['lat'][0])
+            longitude = float(request.args['lng'][0])
+
+            print 'get rating for {},{}'.format(latitude, longitude)
 
             request.setHeader('Access-Control-Allow-Origin', '*')
             request.setHeader('Content-Type', 'application/json; charset=UTF-8')
 
-            return bytes(json.dumps(ext.get_house_info_by_id(house_id),
+            return bytes(json.dumps(ext.get_house_info_by_id(latitude, longitude),
                                     ensure_ascii=False, encoding='utf8'))
             # unused:
-            # latitude = float(request.args['latitude'][0])
-            # longitude = float(request.args['longitude'][0])
 
         except ValueError as e:
             print e
