@@ -42,12 +42,10 @@
                 <header class="js-card-header card__header"></header>
                 <div class="card__body-inner">
                     <div class="js-rating-value card__value"></div>
-                    <div class="card__hint"></div>
-                    <div class="card__shared">Поделиться с друзьями</div>
                 </div>
             </section>
 
-            <section class="card__rating">
+            <section class="card__rating" style="min-height: 200px;">
                 <div class="card__line js-expand hoverable">
                     <div class="card__line-cut">
                         <div class="card__line-desc">
@@ -103,7 +101,7 @@
                 <div class="card__line js-expand hoverable js-commodities">
                     <div class="card__line-cut">
                         <div class="card__line-desc">
-                            <span><b>Инфраструктура</b></span>
+                            <span><b class="cl__blue">Инфраструктура</b></span>
                             <span class="js-commodities-summary"></span>
                         </div>
                         <i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -112,7 +110,7 @@
                 <div class="js-card-section-commodities card__extended card__line hidden"></div>
             </section>
 
-            <section class="card__rating" style="overflow: visible">
+           <!--  <section class="card__rating" style="overflow: visible">
                 <div class="card__line" >
                     <div class="card__line-cut">
                         <div class="card__line-desc">
@@ -127,6 +125,12 @@
                         </div>
                     </div>
                 </div>
+            </section> -->
+
+            <section class="card__sharing">
+                <h1>Расскажи о своём доме друзьям</h1>
+                <p>Мы прикрепим к посту красивую картинку с оценкой вашего дома</p>
+                <img src="/static/social_all.svg" />
             </section>
 
         </article>
@@ -150,6 +154,7 @@
     var apiUrl = 'http://139.59.141.142/rating?';
     var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru&q=';
     var gisMap = {};
+    var gisMarker = null;
 
 
     function setRating(ratingData){
@@ -205,7 +210,7 @@
     DG.then(function () {
         gisMap = DG.map('map', {
             center: [55.754983, 37.554506],
-            zoom: 13,
+            zoom: 15,
             fullscreenControl: false,
             zoomControl: false
         });

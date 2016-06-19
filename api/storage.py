@@ -80,23 +80,20 @@ def get_schools_nearby(coordinates):
 def get_ecology(coordinates):
     ret = {}
 
-    objs = get_mongo()[config.DB_NAME]['GreenPlants'].\
-        find({'location': {
-                '$nearSphere': {
-                    '$geometry': {
-                        'type': 'Point',
-                        'coordinates': coordinates}}}},
-             limit=1)
+    objs = get_mongo()[config.DB_NAME].\
+        command('geoNear', 'GreenPlants', near=coordinates,
+                spherical=True, distanceMultiplier=6371, limit=1)['results'][0]
 
+    print objs
     plants = []
-    for obj in objs:
-        coords = obj['location']['coordinates']
-        coords.reverse()
-        plants.append({
-            'location': coords,
-            'district': obj['district'],
-            'plantQuality': round(obj['plantQuality'], 1)
-        })
+    obj = objs['obj']
+    coords = obj['location']['coordinates']
+    coords.reverse()
+    plants.append({
+        'location': coords,
+        'district': obj['district'],
+        'plantQuality': round(obj['plantQuality'] / max(1, objs['dis']), 1)
+    })
     ret['plants'] = plants
 
     objs = get_mongo()[config.DB_NAME]['Noises'].\

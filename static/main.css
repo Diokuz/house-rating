@@ -252,11 +252,11 @@ footer {
   padding: 20px 20px 16px 20px; }
 
 .card__value {
+  text-align: center;
   font-weight: 100;
   font-size: 60px;
   letter-spacing: -1px;
-  margin-right: 20px;
-  flex: 0 0 auto; }
+  flex: 1 0 auto; }
 
 .card__hint {
   flex: 1 1 auto; }
@@ -305,6 +305,28 @@ footer {
 .card__line-desc {
   color: #171918;
   flex: 1 1 auto; }
+
+.card__sharing {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.07);
+  border-radius: 5px; }
+.card__sharing h1 {
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 40px;
+  color: #171918;
+  margin: 0;
+}
+.card__sharing p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #939393;
+  margin: 5px 0 25px;
+  padding: 0 20%;
+}
 
 .rating {
   margin: 20px;
@@ -365,6 +387,16 @@ footer {
   width: 372px;
   height: 30px;
   background: url(../static/logotype.svg);
+}
+
+.cl__blue {
+  color: #175897;
+}
+.cl__red {
+  color: #91241D;
+}
+.cl__trans {
+  opacity: 0.3;
 }
 
 @media (max-width: 600px) {
