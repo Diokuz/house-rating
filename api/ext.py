@@ -4,9 +4,11 @@
 # This module contains functions used to query external services
 #
 
+import rating
 import storage
 import config
 import utils
+
 import googlemaps
 import requests
 import logging
@@ -37,9 +39,12 @@ def get_transit_time_to_center(departure_point):
         'timeToCenter': None,
     }
 
-    if duration_data['status'] == 'OK':
-        ret['timeToCenter'] = \
-            duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
+    try:
+        if duration_data['status'] == 'OK':
+            ret['timeToCenter'] = \
+                duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
+    except:
+        pass
 
     return ret
 
@@ -61,11 +66,14 @@ def get_drive_time_to_center(departure_point):
         'driveToCenterInTraffic': None
     }
 
-    if duration_data['status'] == 'OK':
-        ret['driveToCenterTime'] = \
-            duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
-        ret['driveToCenterInTraffic'] = \
-            duration_data['rows'][0]['elements'][0]['duration_in_traffic']['value'] / 60
+    try:
+        if duration_data['status'] == 'OK':
+            ret['driveToCenterTime'] = \
+                duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
+            ret['driveToCenterInTraffic'] = \
+                duration_data['rows'][0]['elements'][0]['duration_in_traffic']['value'] / 60
+    except:
+        pass
 
     return ret
 
@@ -137,23 +145,16 @@ def get_house_info_by_id(lat, lng):
 
     strcoords = str(lat) + ',' + str(lng)
 
-    ret['auto'] = {
-        'details': get_drive_time_to_center(strcoords)
-    }
-
-    ret['transport'] = {
-        'details': get_transit_time_to_center(strcoords)
-    }
+    ret['auto'] = get_drive_time_to_center(strcoords)
+    ret['transport'] = get_transit_time_to_center(strcoords)
 
     coords_reversed = [lng, lat]
 
     station_info = storage.get_nearest_metro_station(coords_reversed)
-    ret['transport']['details']['nearestMetroStation'] = station_info['station']
-    ret['apartments'] = {
-        'details': station_info['prices']
-    }
+    ret['transport']['nearestMetroStation'] = station_info['station']
+    ret['apartments'] = station_info['prices']
 
-    ret['transport']['details']['nearestBusStop'] = \
+    ret['transport']['nearestBusStop'] = \
         storage.get_nearest_bus_stop(coords_reversed)
 
     ret['education'] = {
@@ -161,12 +162,12 @@ def get_house_info_by_id(lat, lng):
     }
 
     ret['commodities'] = load_commodities(coords_reversed)
-
     ret['ecology'] = storage.get_ecology(coords_reversed)
 
+    # finally.
+    ret['rating'] = rating.calc_rating(ret)
     return ret
 
 
 if __name__ == '__main__':
-    # test
-    print get_house_info_by_id(4504235282688248)
+    print get_house_info_by_id(55.6857003161, -37.5824186087)
