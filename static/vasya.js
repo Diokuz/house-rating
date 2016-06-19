@@ -1,7 +1,7 @@
 function unfocusMap()
 {
     gisMap.flyTo({
-        center: [55.752314, 37.623483],
+        center: { lat: 55.752314, long: 37.623483 },
         zoom: 10,
         minZoom: 10,
         maxZoom: 15
