@@ -47,6 +47,33 @@ def get_nearest_bus_stop(coordinates):
     }
 
 
+def get_schools_nearby(coordinates):
+    objs = get_mongo()[config.DB_NAME]['Schools'].\
+            find({
+                'location': {
+                    '$nearSphere': {
+                        '$geometry': {
+                            'type': 'Point',
+                            'coordinates': coordinates
+                        },
+                        '$maxDistance': 1000
+                    }
+                }
+            })
+
+    ret = []
+    for obj in objs:
+        print obj
+        coords = obj['location']['coordinates']
+        coords.reverse()
+        ret.append({
+            'location': coords,
+            'statistics': obj['statistics'],
+            'name': obj['name']
+        })
+    return ret
+
+
 if __name__ == '__main__':
     # test
     print get_nearest_metro_station([10, 20])

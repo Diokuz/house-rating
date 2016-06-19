@@ -97,6 +97,10 @@ def get_house_info_by_id(id):
     ret['transport']['details']['nearestBusStop'] = \
         storage.get_nearest_bus_stop(coords_reversed)
 
+    ret['education'] = {
+        'schoolsNearby': storage.get_schools_nearby(coords_reversed)
+    }
+
     return ret
 
 
