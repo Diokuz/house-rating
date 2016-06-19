@@ -20,4 +20,4 @@ def calc_rating(house_stats):
         (len(house_stats['commodities']['banks']) != 0)
     ]
 
-    return 10.0 * sum(factors) / len(factors)
+    return round(10.0 * sum(factors) / len(factors), 1)
