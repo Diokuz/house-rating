@@ -352,12 +352,13 @@ footer {
   position: absolute;
   top: 27px;
   right: 20px;
+  transform: rotate(180deg);
 }
 .fa:before {
   content: none;
 }
 .fa-arrow-up {
-  transform: rotate(180deg);
+  transform: none;
 }
 
 /*# sourceMappingURL=main.css.map */
