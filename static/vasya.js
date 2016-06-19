@@ -1,10 +1,10 @@
 function unfocusMap()
 {
     gisMap.flyTo({
-        center: DG.latLng(55.752314, 37.623483),
-        zoom: 10,
-        minZoom: 10,
-        maxZoom: 15
+        lat: 55.752314, 
+        lng: 37.623483,
+        zoom: 5,
+        minZoom: 10        
     });
 }
 
@@ -12,7 +12,9 @@ function unfocusMap()
 function focusMap(lat, lng)
 {
     gisMap.flyTo({
-        center: DB.latLng(lat, lng),
-        zoom: 15
+        lat: lat, 
+        lng: lng,
+        zoom: 15,
+        minZoom: 10        
     });
 }
