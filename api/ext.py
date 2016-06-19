@@ -177,4 +177,4 @@ def get_house_info_by_id(lat, lng):
 
 
 if __name__ == '__main__':
-    print get_house_info_by_id(55.6857003161, 37.5824186087)
+    print get_house_info_by_id(55.689372, 37.605802)
