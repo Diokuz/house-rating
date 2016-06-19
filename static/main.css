@@ -209,6 +209,7 @@ footer {
 }
 .card__home-button:hover {
   background-color: rgb(48, 127, 231);
+  border-color: rgb(48, 127, 231);
   color: white;
 }
 
@@ -356,6 +357,16 @@ footer {
   background-color: #f7f6ee;
 }
 
+.logo {
+  position: fixed;
+  top: 202px;
+  right: -148px;
+  transform: rotate(90deg);
+  width: 372px;
+  height: 30px;
+  background: url(../static/logotype.svg);
+}
+
 @media (max-width: 600px) {
   .plate {
     width: 100%;
@@ -364,5 +375,8 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+  }
+  .logo {
+    display: none;
   }
 }
