@@ -6,6 +6,8 @@ $(function() {
 
     function sendRequest(lng, lat) {
         unfocusMap();
+        $('.card__home').html('Загружаю...');
+
         $.getJSON(backend, { lng: lng, lat: lat }, function(data) {
             console.log('data', data);
             fillRatingCard(data);
@@ -25,9 +27,11 @@ $(function() {
         if (ratingData.rating > 7) mod = '_good';
 
         $('.card')
+            .removeClass('_home')
             .removeClass('_bad')
             .removeClass('_normal')
             .removeClass('_normal')
+            .addClass('_rating')
             .addClass(mod);
     }
 
