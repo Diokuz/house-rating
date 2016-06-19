@@ -27,6 +27,25 @@ class MapComponent extends React.Component {
         }
     }
 
+    componentDidUpdate() {
+        const { coords } = this.props;
+
+        if (this.map) {
+            this.map.setView(coords, 15);
+        }
+    }
+
+    initMap() {
+        const { coords } = this.props;
+
+        setTimeout(() => {
+            const tilesLayer = L.tileLayer(config.tilesUrl, config.tiles);
+
+            this.map = L.map(this.refs.mapLayout, config.map);
+            this.map.addLayer(tilesLayer).setView(coords, 13);
+        }, 100);
+    }
+
     render() {
         return (
             <div className="map-container">
@@ -34,6 +53,10 @@ class MapComponent extends React.Component {
             </div>
         );
     }
+}
+
+MapComponent.defaultProps = {
+    coords: [55.75, 37.54]
 }
 
 export default MapComponent;

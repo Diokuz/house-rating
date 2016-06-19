@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/main.css">
     <link rel="stylesheet" href="../static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/jquery.auto-complete.css">
 </head>
 <body>
 <div class="main-app-container">
     <div class="plate">
-        <form class="finder">
+        <div class="finder">
             <div class="finder__input-wrapper">
                 <input autocomplete="off" class="js-find-input finder__input" type="text" name="address" placeholder="Адрес дома">
                 <div class="js-search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </div>
             </div>
-        </form>
+        </div>
         <noscript></noscript>
         <article class="js-main-card card">
             <section class="card__body">
@@ -69,6 +70,8 @@
 <script src="http://maps.api.2gis.ru/2.0/loader.js"></script>
 <script src="../static/index.js"></script>
 <script src="../static/maksim.js"></script>
+<script src="../static/dima.js"></script>
+<script src="../static/jquery.auto-complete.js"></script>
 <script>
     var apiUrl = 'http://139.59.141.142/rating?';
     var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru&q=';

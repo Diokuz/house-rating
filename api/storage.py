@@ -51,7 +51,8 @@ def get_nearest_bus_stop(coordinates):
     coords.reverse()
     return {
         'location': coords,
-        'walkTime': int(float(obj['dis']) * 15)
+        'walkTime': int(float(obj['dis']) * 15),
+        'name': obj['obj']['name']
     }
 
 
