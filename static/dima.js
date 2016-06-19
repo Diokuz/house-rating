@@ -5,10 +5,11 @@ $(function() {
     var backend = 'http://139.59.141.142/rating'
 
     function sendRequest(lng, lat) {
+        unfocusMap();
         $.getJSON(backend, { lng: lng, lat: lat }, function(data) {
             console.log('data', data);
             fillRatingCard(data);
-            // Вызов функции заполнения карточки и карты
+            focusMap(lat, lng);
         });
     }
 
