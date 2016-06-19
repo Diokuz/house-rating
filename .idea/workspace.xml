@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f6c73f-153e-49ae-99eb-b71cc6bbb8e2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/compass_library.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/dima.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fonts/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/main.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/maksim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/vasya.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/maksim.js" afterPath="$PROJECT_DIR$/static/maksim.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.htm" afterPath="$PROJECT_DIR$/views/index.htm" />
     </list>
     <ignored path="Source.iws" />
@@ -31,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.htm" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.htm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55538464">
-              <caret line="140" column="64" selection-start-line="140" selection-start-column="64" selection-end-line="140" selection-end-column="64" />
+            <state vertical-scroll-proportion="-9.301887">
+              <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -51,12 +44,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maksim.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="maksim.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/maksim.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.4679943">
+              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+              <folding>
+                <marker date="1466329099000" expanded="true" signature="66:325" placeholder="..." />
+                <marker date="1466329099000" expanded="true" signature="107:306" placeholder="..." />
+                <marker date="1466329099000" expanded="true" signature="149:287" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,10 +189,10 @@
         <option value="$PROJECT_DIR$/static/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/static/fonts/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/static/main.scss" />
-        <option value="$PROJECT_DIR$/views/index.htm" />
         <option value="$PROJECT_DIR$/static/dima.js" />
-        <option value="$PROJECT_DIR$/static/maksim.js" />
         <option value="$PROJECT_DIR$/static/vasya.js" />
+        <option value="$PROJECT_DIR$/views/index.htm" />
+        <option value="$PROJECT_DIR$/static/maksim.js" />
       </list>
     </option>
   </component>
@@ -547,14 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/maksim.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/vasya.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -565,9 +554,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55538464">
-          <caret line="140" column="64" selection-start-line="140" selection-start-column="64" selection-end-line="140" selection-end-column="64" />
+        <state vertical-scroll-proportion="-9.301887">
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="67" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/maksim.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4679943">
+          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
+          <folding>
+            <marker date="1466329099000" expanded="true" signature="66:325" placeholder="..." />
+            <marker date="1466329099000" expanded="true" signature="107:306" placeholder="..." />
+            <marker date="1466329099000" expanded="true" signature="149:287" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

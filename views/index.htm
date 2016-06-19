@@ -19,15 +19,15 @@
             </div>
         </form>
         <noscript></noscript>
-        <article class="js-main-card card hidden">
+        <article class="js-main-card card">
             <section class="card__body">
                 <header class="js-card-header card__header"></header>
                 <div class="card__body-inner">
                     <div class="js-rating-value card__value"></div>
                     <div class="card__hint">
-                        <span>Входит в 18% </span>
-                        <span class="card__mark _best">лучших</span>
-                        <span> домов Москвы</span>
+                        <!--<span>Входит в 18% </span>-->
+                        <!--<span class="card__mark _best">лучших</span>-->
+                        <!--<span> домов Москвы</span>-->
                     </div>
                     <div class="card__shared">Поделиться с друзьями</div>
                 </div>
@@ -43,7 +43,7 @@
                         <i class="fa fa-arrow-up" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div class="card__extended card__line hidden">
+                <div class="js-card-section card__extended card__line hidden">
                     <div class="card__line">
                         <div class="card__line-cut">
                             <div class="card__line-desc js-traffic-info">
@@ -52,17 +52,7 @@
                     </div>
                     <div class="card__line">
                         <div class="card__line-cut">
-                            <div class="card__line-desc">
-                                <a href="#nogo">1.2</a>
-                                <span>км до метро</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card__line">
-                        <div class="card__line-cut">
-                            <div class="card__line-desc">
-                                <a href="#nogo">1.2</a>
-                                <span>км до метро</span>
+                            <div class="card__line-desc js-bus-info">
                             </div>
                         </div>
                     </div>
@@ -78,38 +68,15 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="http://maps.api.2gis.ru/2.0/loader.js"></script>
 <script src="../static/index.js"></script>
+<script src="../static/maksim.js"></script>
 <script>
     var apiUrl = 'http://139.59.141.142/rating?';
     var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru&q=';
     var gisMap = {};
 
 
-    function getMetroInfo(metro){
-        var item ='<div class="card__line">'+
-            '<div class="card__line-cut">'+
-                '<div class="card__line-desc">'+
-                    '<a href="#nogo">1.2</a>'+
-                    '<span>км до метро</span>'+
-                '</div>'+
-            '</div>'+
-        '</div>'
-    }
-
-
     function setRating(ratingData){
-        $(".js-rating-value").text(ratingData.rating);
-        $(".js-card-header").text($(".js-find-input").val());
-        $(".js-find-input").val("");
 
-
-        var auto = ratingData.auto;
-        var transport = ratingData.transport;
-        var metro = transport.nearestMetroStations
-        var busStop = transport.nearestBusStop;
-        $(".js-transport-summary").html([metro[0].walkTime," мин. до м. ",metro[0].name,", ",auto.driveToCenterTime," мин. до ТТК"]);
-        $(".js-traffic-info").html([auto.driveToCenterTime," мин. до ТТК без пробок и ",auto.driveToCenterInTraffic," мин с пробками"]);
-
-        $(".js-main-card").removeClass("hidden");
     }
 
 
