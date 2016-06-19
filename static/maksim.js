@@ -58,7 +58,7 @@ function fillRatingCard(ratingData) {
 
     var auto = ratingData.auto;
     var transport = ratingData.transport;
-    var metros = transport.nearestMetroStations
+    var metros = transport.nearestMetroStations;
     var busStop = transport.nearestBusStop;
     var schoolsArr = ratingData.education.schoolsNearby;
     var ecology = ratingData.ecology;
@@ -76,7 +76,7 @@ function fillRatingCard(ratingData) {
         $(".js-education-summary").parent().next(".fa").show();
         $(".js-education-summary").html(["Рядом есть несколько хороших школ"]);
 
-
+        $(".js-card-section-edu").html("");
         $(".js-card-section-edu").append(schoolsArr.map(function (i) {
             return getSchoolInfo(i);
         }).join(""));
@@ -97,6 +97,8 @@ function fillRatingCard(ratingData) {
     if(ecology.noises && ecology.noises.length) {
         $(".js-noise").find(".fa").show();
         $(".js-noise-summary").html(["есть превышения нормативов допустимого уровня шума"]);
+
+        $(".js-card-section-noise").html("");
         $(".js-card-section-noise").append(ecology.noises.map(function (i) {
             return getNoiseInfo(i);
         }).join(""));
@@ -109,6 +111,8 @@ function fillRatingCard(ratingData) {
     var comodoties = ratingData.commodities;
 
     $(".js-commodities-summary").html(["В 5 минутах ходьбы расположено. Банков:",comodoties.banks.length," аптек:",comodoties.chemists.length," ресторанов:",comodoties.restaurants.length," супермаркетов:",comodoties.supermarkets.length])
+
+    $(".js-card-section-commodities").html("");
 
     $(".js-card-section-commodities").append(getHeader("Банки"));
     $(".js-card-section-commodities").append(comodoties.banks.map(function (i) {
