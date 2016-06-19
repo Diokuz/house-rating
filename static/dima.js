@@ -17,8 +17,10 @@ $(function() {
     }
 
     function fillGreen(ratingData) {
-        $(".js-rating-value").text(ratingData.rating);
-        $(".js-card-header").text($(".js-find-input").val());
+        $(".card__header").text($(".js-find-input").val());
+        $(".card__value").html(
+            ratingData.rating + '<span class="cl__trans"> из 10</span>'
+        );
         $(".js-find-input").val("");
 
         var mod = '_bad';

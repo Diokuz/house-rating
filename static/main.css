@@ -220,7 +220,7 @@ footer {
 .card__extended {
   background-color: #F6F6F6; }
   .card__extended .card__line-cut {
-    padding: 12px 20px 10px 55px; }
+    padding: 12px 40px 10px 55px; }
 
 .card__header {
   font-size: 14px;
@@ -252,11 +252,11 @@ footer {
   padding: 20px 20px 16px 20px; }
 
 .card__value {
+  text-align: center;
   font-weight: 100;
   font-size: 60px;
   letter-spacing: -1px;
-  margin-right: 20px;
-  flex: 0 0 auto; }
+  flex: 1 0 auto; }
 
 .card__hint {
   flex: 1 1 auto; }
@@ -365,6 +365,16 @@ footer {
   width: 372px;
   height: 30px;
   background: url(../static/logotype.svg);
+}
+
+.cl__blue {
+  color: #175897;
+}
+.cl__red {
+  color: #91241D;
+}
+.cl__trans {
+  opacity: 0.3;
 }
 
 @media (max-width: 600px) {

@@ -42,12 +42,10 @@
                 <header class="js-card-header card__header"></header>
                 <div class="card__body-inner">
                     <div class="js-rating-value card__value"></div>
-                    <div class="card__hint"></div>
-                    <div class="card__shared">Поделиться с друзьями</div>
                 </div>
             </section>
 
-            <section class="card__rating">
+            <section class="card__rating" style="min-height: 400px;">
                 <div class="card__line js-expand hoverable">
                     <div class="card__line-cut">
                         <div class="card__line-desc">
@@ -205,7 +203,7 @@
     DG.then(function () {
         gisMap = DG.map('map', {
             center: [55.754983, 37.554506],
-            zoom: 13,
+            zoom: 15,
             fullscreenControl: false,
             zoomControl: false
         });
