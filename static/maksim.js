@@ -27,11 +27,6 @@ function nearestTimeFormat(time) {
 
 function fillRatingCard(ratingData) {
 
-    $(".js-rating-value").text(ratingData.rating);
-    $(".js-card-header").text($(".js-find-input").val());
-    $(".js-find-input").val("");
-
-
     var auto = ratingData.auto;
     var transport = ratingData.transport;
     var metros = transport.nearestMetroStations
