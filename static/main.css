@@ -186,6 +186,7 @@ footer {
   text-transform: uppercase; }
 
 .card__body {
+  flex: 0 0 auto;
   display: none;
   overflow: hidden;
   background-image: linear-gradient(2deg, #b4ec51, #429321);
