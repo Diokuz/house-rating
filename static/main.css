@@ -133,13 +133,16 @@ footer {
   display: block;
   box-sizing: border-box;
   padding: 16px 20px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.75);
   color: white;
   border-radius: 5px;
   border: 0;
   width: 100%;
   font-size: 15px;
   line-height: 18px; }
+.finder__input:focus {
+  background: rgba(0, 0, 0, 0.9);
+}
 .finder__input-wrapper:after {
   content: '';
   background-image: url(../static/search.svg);
