@@ -2,7 +2,17 @@ function getMetroInfo(metro) {
     return '<div class="card__line">' +
         '<div class="card__line-cut">' +
         '<div class="card__line-desc">' +
-        metro.distance + ' км, <a href="#nogo">' + nearestTimeFormat(metro.walkTime) + '</a> до метро ' + metro.name +
+        metro.distance + ' км, <a href="#nogo">' + nearestTimeFormat(metro.walkTime) + '</a> до метро "' + metro.name + '"' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+}
+
+function getSchoolInfo(school) {
+    return '<div class="card__line">' +
+        '<div class="card__line-cut">' +
+        '<div class="card__line-desc">' +
+        school.name + ', ' + school.statistics.over150ball + ' учеников сдали ЕГЭ на 150–220 баллов. ' + school.statistics.over220ball + ' ученика — на 220 баллов или выше' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -26,61 +36,112 @@ function fillRatingCard(ratingData) {
     var transport = ratingData.transport;
     var metros = transport.nearestMetroStations
     var busStop = transport.nearestBusStop;
-    $(".js-transport-summary").html([nearestTimeFormat(metros[0].walkTime), " до м. ", metros[0].name, ", ", auto.driveToCenterTime, " мин. до ТТК"]);
+    var schoolsArr = ratingData.education.schoolsNearby;
+    var ecology = ratingData.ecology;
+
+    $(".js-transport-summary").html([nearestTimeFormat(metros[0].walkTime), " до м. \"", metros[0].name, "\", ", auto.driveToCenterTime, " мин. до ТТК"]);
     $(".js-traffic-info").html([auto.driveToCenterTime, " мин. до ТТК без пробок и ", auto.driveToCenterInTraffic, " мин с пробками"]);
-    $(".js-bus-info").html(["до ближайшей остановки " ,busStop.name, " идти ", nearestTimeFormat(busStop.walkTime)]);
+    $(".js-bus-info").html(["до ближайшей остановки \"", busStop.name, "\" идти ", nearestTimeFormat(busStop.walkTime)]);
 
     var metroHtml = metros.map(function (i) {
         return getMetroInfo(i);
     }).join("");
 
-    $(".js-card-section").append(metroHtml);
+
+    if (schoolsArr.length) {
+        $(".js-education-summary").html(["Рядом есть несколько хороших школ"]);
+
+
+        $(".js-card-section-edu").append(schoolsArr.map(function (i) {
+            return getSchoolInfo(i);
+        }).join(""));
+    } else {
+        $(".js-education-summary").html(["До ближайшей школы идти не менее 20 мин"]);
+        $(".js-education-summary").parent().next(".fa").hide();
+    }
+
+    $(".js-card-section-metro").append(metroHtml);
+
+    if(ecology.plants && ecology.plants.length) {
+        $(".js-ecology-summary").html(["По данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100"])
+    }
 
 }
 
 setTimeout(
     fillRatingCard({
-        "rating": 5.7,
+        "rating": 8.6,
         "ecology": {"plants": [], "noises": []},
-        "apartments": {"purchase": 136719, "rent": 682},
-        "auto": {"driveToCenterTime": 33, "driveToCenterInTraffic": 37},
+        "apartments": {"purchase": 183586, "rent": 807},
+        "auto": {"driveToCenterTime": 30, "driveToCenterInTraffic": 33},
         "commodities": {
             "chemists": [{
-                "name": "Ковиаф, аптека",
-                "address": "Исаковского, 4 к2"
+                "name": "Фармадар, сеть аптек",
+                "address": "Исаковского, 33 к1"
+            }, {"name": "ГорЗдрав, сеть аптек", "address": "Маршала Катукова, 25"}, {
+                "name": "ГорЗдрав, сеть аптек",
+                "address": "Маршала Катукова, 23"
+            }, {
+                "name": "Эко Мир, аптека",
+                "address": "Маршала Катукова, 24 к5"
             }, {
                 "name": "ЗдравСити, служба заказа товаров аптечного ассортимента",
-                "address": "Исаковского, 6 к2"
-            }, {"name": "Аструмфарм, ООО, аптека", "address": "Исаковского, 6 к2"}],
+                "address": "Маршала Катукова, 24 к5"
+            }],
             "supermarkets": [{
-                "name": "Дикси, сеть супермаркетов",
-                "address": "Исаковского, 6 к1"
+                "name": "Азбука вкуса, сеть супермаркетов",
+                "address": "Исаковского, 33"
             }, {
-                "name": "BILLA, сеть супермаркетов",
-                "address": "Исаковского, 6 к2"
+                "name": "Пятерочка, сеть универсамов",
+                "address": "Исаковского, 33 к1"
+            }, {"name": "Магнит, сеть универсамов", "address": "Исаковского, 33 к3"}, {
+                "name": "888, сеть магазинов",
+                "address": "Исаковского, 31"
             }, {
-                "name": "ЛАЗ-Сервис, ООО, продуктовый магазин",
-                "address": "Исаковского, 2 к1"
+                "name": "Роникс, ООО, продуктовый магазин",
+                "address": "Исаковского, 31"
             }, {
-                "name": "Монетка, сеть универсамов",
-                "address": "Исаковского, 8 к4"
-            }, {"name": "МТ и К, ООО, продуктовый магазин", "address": "Исаковского, 2 к2"}],
-            "banks": [{"name": "Сбербанк России, ПАО", "address": "Исаковского, 2 к1"}],
-            "restaurants": []
+                "name": "Перекресток, сеть супермаркетов",
+                "address": "Маршала Катукова, 25"
+            }, {"name": "Продуктовый магазин", "address": "Исаковского, 27 к1"}, {
+                "name": "Кириос, минимаркет",
+                "address": "Маршала Катукова, 24 к5"
+            }],
+            "banks": [{"name": "АКБ Авангард, ПАО", "address": "Исаковского, 33 к1"}, {
+                "name": "Сбербанк России, ПАО",
+                "address": "Маршала Катукова, 25"
+            }],
+            "restaurants": [{
+                "name": "Мьюзик холл, ресторан-караоке",
+                "address": "Исаковского, 33"
+            }, {"name": "Сити Пицца, ресторан-пиццерия", "address": "Исаковского, 33 к3"}, {
+                "name": "Лоза, кафе",
+                "address": "Исаковского, 31"
+            }, {"name": "Чайхона №1, сеть ресторанов", "address": "Маршала Катукова, 23"}]
         },
-        "education": {"schoolsNearby": []},
+        "education": {
+            "schoolsNearby": [{
+                "statistics": {"over150ball": 48, "over220ball": 30, "passedTotal": 54},
+                "location": [55.806921, 37.419244],
+                "name": "ГБОУ СОШ № 1302"
+            }, {
+                "statistics": {"over150ball": 71, "over220ball": 37, "passedTotal": 80},
+                "location": [55.807884, 37.412408],
+                "name": "ГБОУ гимназия № 1519"
+            }]
+        },
         "transport": {
             "nearestMetroStations": [{
-                "walkTime": 18,
-                "distance": 1.3,
-                "name": "Мякинино",
-                "location": [55.8252, 37.3852]
-            }, {"walkTime": 24, "distance": 1.6, "name": "Строгино", "location": [55.8038, 37.4031]}],
+                "walkTime": 15,
+                "distance": 1.0,
+                "name": "Строгино",
+                "location": [55.8038, 37.4031]
+            }, {"walkTime": 26, "distance": 1.8, "name": "Спартак", "location": [55.8182, 37.4353]}],
             "nearestBusStop": {
-                "walkTime": 0,
-                "location": [55.818651913961354, 37.400285016858625],
-                "name": "Ул. Исаковского, 6"
+                "walkTime": 1,
+                "location": [55.804552339724545, 37.419802837004184],
+                "name": "Ул. Исаковского, 33"
             },
-            "timeToCenter": 75
+            "timeToCenter": 66
         }
     }), 1000);
