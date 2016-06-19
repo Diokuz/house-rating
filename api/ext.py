@@ -59,7 +59,8 @@ def get_drive_time_to_center(departure_point):
         origins=departure_point,
         destinations='3-е кольцо Москва',
         mode='driving',
-        departure_time=utils.get_next_rush_hour_timestamp())
+        departure_time=utils.get_next_rush_hour_timestamp(),
+        traffic_model='pessimistic')
 
     ret = {
         'driveToCenterTime': None,
@@ -68,6 +69,7 @@ def get_drive_time_to_center(departure_point):
 
     try:
         if duration_data['status'] == 'OK':
+            print duration_data
             ret['driveToCenterTime'] = \
                 duration_data['rows'][0]['elements'][0]['duration']['value'] / 60
             ret['driveToCenterInTraffic'] = \
@@ -175,4 +177,4 @@ def get_house_info_by_id(lat, lng):
 
 
 if __name__ == '__main__':
-    print get_house_info_by_id(55.6857003161, -37.5824186087)
+    print get_house_info_by_id(55.6857003161, 37.5824186087)
