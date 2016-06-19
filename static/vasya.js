@@ -6,7 +6,7 @@ function focusMap(lat, lng)
 {
     gisMap.flyTo({
         lat: lat, 
-        lng: lng - 0.001,
+        lng: lng - 0.004,
         zoom: 15,
         minZoom: 10        
     });
