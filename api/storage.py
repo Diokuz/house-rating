@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+# -*- coding: utf8 -*-
+#
+# Functions that retrieve certain data from our awesome internal DB
+#
+
 import utils
 import config
 import pymongo
@@ -16,23 +21,26 @@ def get_mongo():
 get_mongo.value = None
 
 
-def get_nearest_metro_station(coordinates):
-    obj = get_mongo()[config.DB_NAME].\
+def get_nearest_metro_stations(coordinates):
+    objects = get_mongo()[config.DB_NAME].\
         command('geoNear', 'MetroStations', near=coordinates,
-                spherical=True, distanceMultiplier=6371, limit=1)['results'][0]
-    coords = obj['obj']['location']['coordinates']
-    coords.reverse()
-    return {
-        'station': {
+                spherical=True, distanceMultiplier=6371, limit=2)['results']
+    stations = []
+    for obj in objects:
+        coords = obj['obj']['location']['coordinates']
+        coords.reverse()
+        stations.append({
             'name': obj['obj']['name'],
             'location': coords,
-            'walkTime': int(float(obj['dis']) * 15)
-        },
-        'prices': {
-            'rent': obj['obj']['price']['rent'],
-            'purchase': obj['obj']['price']['cost']
-        }
-    }
+            'distance': round(float(obj['dis']), 1),
+            'walkTime': int(float(obj['dis']) * 15),
+            'prices': {
+                'rent': obj['obj']['price']['rent'],
+                'purchase': obj['obj']['price']['cost']
+            }
+        })
+    print stations
+    return stations
 
 
 def get_nearest_bus_stop(coordinates):
@@ -54,16 +62,10 @@ def get_schools_nearby(coordinates):
                     '$nearSphere': {
                         '$geometry': {
                             'type': 'Point',
-                            'coordinates': coordinates
-                        },
-                        '$maxDistance': 2000
-                    }
-                }
-            })
-
+                            'coordinates': coordinates},
+                        '$maxDistance': 1000}}})
     ret = []
     for obj in objs:
-        print obj
         coords = obj['location']['coordinates']
         coords.reverse()
         ret.append({
@@ -74,6 +76,43 @@ def get_schools_nearby(coordinates):
     return ret
 
 
-if __name__ == '__main__':
-    # test
-    print json.dumps(get_nearest_metro_station([10, 20]), encoding='utf-8')
+def get_ecology(coordinates):
+    ret = {}
+
+    objs = get_mongo()[config.DB_NAME]['GreenPlants'].\
+        find({'location': {
+                '$nearSphere': {
+                    '$geometry': {
+                        'type': 'Point',
+                        'coordinates': coordinates},
+                    '$maxDistance': 1000}}})
+
+    plants = []
+    for obj in objs:
+        coords = obj['location']['coordinates']
+        coords.reverse()
+        plants.append({
+            'location': coords,
+            'district': obj['district'],
+            'plantQuality': obj['plantQuality']
+        })
+    ret['plants'] = plants
+
+    objs = get_mongo()[config.DB_NAME]['Noises'].\
+        find({'location': {
+                '$nearSphere': {
+                    '$geometry': {
+                        'type': 'Point',
+                        'coordinates': coordinates},
+                    '$maxDistance': 1000}}})
+    noises = []
+    for obj in objs:
+        coords = obj['location']['coordinates']
+        coords.reverse()
+        noises.append({
+            'location': coords,
+            'reason': obj['noise']
+        })
+    ret['noises'] = noises
+
+    return ret

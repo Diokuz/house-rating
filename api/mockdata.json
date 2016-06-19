@@ -60,5 +60,13 @@
         "details": {
         },
         "rating": 8.9
+    },
+    "commodities": {
+        "rating": 5.0,
+        "chemists": [ { "name": "", "location": [12.345, 67.89]} ],
+        "bars": [ { "name": "", "location": [12.345, 67.89]} ],
+        "restaurants": [ { "name": "", "location": [12.345, 67.89]} ],
+        "supermarkets": [ { "name": "", "location": [12.345, 67.89]} ],
+        "banks": [],
     }
 }
