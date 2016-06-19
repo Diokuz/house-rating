@@ -95,7 +95,7 @@ def get_ecology(coordinates):
         plants.append({
             'location': coords,
             'district': obj['district'],
-            'plantQuality': obj['plantQuality']
+            'plantQuality': round(obj['plantQuality'], 1)
         })
     ret['plants'] = plants
 
