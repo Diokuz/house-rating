@@ -4,6 +4,7 @@
 import config
 import ext
 
+from twisted.web import static
 from twisted.web.server import Site
 from twisted.web.resource import Resource
 from twisted.internet import reactor
@@ -44,11 +45,24 @@ class GetRating(Resource):
             return make_error_message('Internal server error')
 
 
+class Homepage(Resource):
+    isLeaf = False
+
+    def getChild(self, name, request):
+        if name == '':
+            return self
+        return Resource.getChild(self, name, request)
+
+    def render_GET(self, request):
+        return open('../views/index.htm', 'r').read()
+
+
 def run():
     reload(sys)
     sys.setdefaultencoding('utf-8')
 
-    root = Resource()
+    root = Homepage()
+    root.putChild("static", static.File('../static'))
     root.putChild("rating", GetRating())
 
     factory = Site(root)

@@ -56,7 +56,7 @@ def get_schools_nearby(coordinates):
                             'type': 'Point',
                             'coordinates': coordinates
                         },
-                        '$maxDistance': 1000
+                        '$maxDistance': 2000
                     }
                 }
             })
@@ -76,4 +76,4 @@ def get_schools_nearby(coordinates):
 
 if __name__ == '__main__':
     # test
-    print get_nearest_metro_station([10, 20])
+    print json.dumps(get_nearest_metro_station([10, 20]), encoding='utf-8')
