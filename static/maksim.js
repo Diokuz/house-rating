@@ -32,7 +32,7 @@ function getCommoditiInfo(comm){
     return '<div class="card__line">' +
         '<div class="card__line-cut">' +
         '<div class="card__line-desc">' +
-        comm.name + 'адрес <span>'+comm.address+'<span>'+
+        comm.name + ' адрес <span>'+comm.address+'<span>'+
         '</div>' +
         '</div>' +
         '</div>';

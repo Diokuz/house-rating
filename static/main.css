@@ -104,7 +104,9 @@ footer {
   position: fixed;
   top: 20px;
   left: 20px;
-  bottom: 0;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
   z-index: 999;
   /*opacity: 0.5;*/ }
 
@@ -158,6 +160,8 @@ footer {
   margin-top: 20px;
   min-height: 100px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
   color: white; }
 
 .card__home {
@@ -182,6 +186,7 @@ footer {
   text-transform: uppercase; }
 
 .card__body {
+  flex: 0 0 auto;
   display: none;
   overflow: hidden;
   background-image: linear-gradient(2deg, #b4ec51, #429321);
@@ -222,6 +227,7 @@ footer {
 
 .card__rating {
   display: none;
+  overflow: auto;
   margin-top: 20px;
   background-color: #fff;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.07);
@@ -276,6 +282,7 @@ footer {
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
   -webkit-transform: translate3d(0, 4px, 0);
   border: none;
+  max-height: 10000px;
 }
 .autocomplete-suggestion {
   padding: 20px;
