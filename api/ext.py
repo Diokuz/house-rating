@@ -9,6 +9,7 @@ import config
 import utils
 import googlemaps
 import requests
+import logging
 import re
 
 
@@ -69,6 +70,46 @@ def get_drive_time_to_center(departure_point):
     return ret
 
 
+def load_commodities(coordinates):
+    ret = {
+        "chemists": [],
+        "restaurants": [],
+        "supermarkets": [],
+        "banks": [],
+    }
+
+    try:
+        data = requests.get(
+            'http://catalog.api.2gis.ru/2.0/catalog/branch/list',
+            dict(key='ruvszz7964',
+                 rubric_id='4503719886455157,4503719886455134,4503719886454945,' +
+                           '4503719886454948,4503719886454991,4503719886455276',
+                 region_id=32, sort='distance',
+                 point=(str(coordinates[0]) + ',' + str(coordinates[1])),
+                 radius=500, fields='items.rubrics')).json()
+
+        aliases = dict(
+            prodovolstvennye_magaziny='supermarkets',
+            supermarkety='supermarkets',
+            kafe='restaurants',
+            restorany='restaurants',
+            apteki='chemists',
+            banki='banks')
+
+        if data['meta']['code'] == 200:
+            for obj in data['result']['items']:
+                for r in obj['rubrics']:
+                    if r['alias'] in aliases:
+                        ret[aliases[r['alias']]].append({
+                                'name': obj['name'],
+                                'address': obj['address_name']})
+    except Exception as e:
+        logging.warn('Caugh exception: ' + str(e))
+        raise
+    finally:
+        return ret
+
+
 def get_house_info_by_id(id):
     """
         Gets all the house info needed in our service.
@@ -116,6 +157,8 @@ def get_house_info_by_id(id):
     ret['education'] = {
         'schoolsNearby': storage.get_schools_nearby(coords_reversed)
     }
+
+    ret['commodities'] = load_commodities(coords_reversed)
 
     ret['ecology'] = storage.get_ecology(coords_reversed)
 
