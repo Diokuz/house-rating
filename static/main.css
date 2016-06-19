@@ -380,3 +380,39 @@ footer {
     display: none;
   }
 }
+
+.emodzi {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: bottom;
+  background: url(img/emoji-sprite.svg);
+}
+
+.emodzi.house {
+  background-position: 0 0;
+}
+
+.emodzi.tree {
+  background-position: 105px 0;
+}
+
+.emodzi.man {
+  background-position: 89px 0;
+}
+
+.emodzi.car {
+  background-position: 71px 0;
+}
+
+.emodzi.school {
+  background-position: 53px 0;
+}
+
+.emodzi.baby {
+  background-position: 34px 0;
+}
+
+.emodzi.hand {
+  background-position: 108px 0;
+}

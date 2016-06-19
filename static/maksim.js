@@ -63,7 +63,7 @@ function fillRatingCard(ratingData) {
     var schoolsArr = ratingData.education.schoolsNearby;
     var ecology = ratingData.ecology;
 
-    $(".js-transport-summary").html([nearestTimeFormat(metros[0].walkTime), " до м. \"", metros[0].name, "\", ", auto.driveToCenterTime, " мин. до ТТК"]);
+    $(".js-transport-summary").html(["<span class='emodzi man'></span>", nearestTimeFormat(metros[0].walkTime), " до м. \"", metros[0].name, "\", ","<span class='emodzi car'></span> ", auto.driveToCenterTime, " мин. до ТТК"]);
     $(".js-traffic-info").html([auto.driveToCenterTime, " мин. до центра без пробок и ", auto.driveToCenterInTraffic, " мин. с пробками"]);
     $(".js-bus-info").html(["до ближайшей остановки \"", busStop.name, "\" идти ", nearestTimeFormat(busStop.walkTime)]);
 
@@ -74,7 +74,7 @@ function fillRatingCard(ratingData) {
 
     if (schoolsArr.length) {
         $(".js-education-summary").parent().next(".fa").show();
-        $(".js-education-summary").html(["Рядом есть несколько хороших школ"]);
+        $(".js-education-summary").html(["Рядом есть несколько хороших школ <span class='emodzi school'></span>"]);
 
         $(".js-card-section-edu").html("");
         $(".js-card-section-edu").append(schoolsArr.map(function (i) {
@@ -89,7 +89,7 @@ function fillRatingCard(ratingData) {
     $(".js-card-section-metro").append(metroHtml);
 
     if(ecology.plants && ecology.plants.length) {
-        $(".js-ecology-summary").html(["по данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100"])
+        $(".js-ecology-summary").html(["по данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100 <span class='emodzi tree'></span>"])
     } else {
         $(".js-ecology").hide();
     }
@@ -110,7 +110,7 @@ function fillRatingCard(ratingData) {
 
     var comodoties = ratingData.commodities;
 
-    $(".js-commodities-summary").html(["В 5 минутах ходьбы банков: ", comodoties.banks.length, 
+    $(".js-commodities-summary").html(["<span class='emodzi house'></span> В 5 минутах ходьбы банков: ", comodoties.banks.length,
                                        ", аптек: ", comodoties.chemists.length,
                                        ", ресторанов: ", comodoties.restaurants.length,
                                        ", супермаркетов: ", comodoties.supermarkets.length])
