@@ -64,7 +64,7 @@ function fillRatingCard(ratingData) {
     var ecology = ratingData.ecology;
 
     $(".js-transport-summary").html([nearestTimeFormat(metros[0].walkTime), " до м. \"", metros[0].name, "\", ", auto.driveToCenterTime, " мин. до ТТК"]);
-    $(".js-traffic-info").html([auto.driveToCenterTime, " мин. до ТТК без пробок и ", auto.driveToCenterInTraffic, " мин с пробками"]);
+    $(".js-traffic-info").html([auto.driveToCenterTime, " мин. до центра без пробок и ", auto.driveToCenterInTraffic, " мин. с пробками"]);
     $(".js-bus-info").html(["до ближайшей остановки \"", busStop.name, "\" идти ", nearestTimeFormat(busStop.walkTime)]);
 
     var metroHtml = metros.map(function (i) {
@@ -90,7 +90,7 @@ function fillRatingCard(ratingData) {
 
     if(ecology.plants && ecology.plants.length) {
         $(".js-ecology-summary").html(["по данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100"])
-    }else{
+    } else {
         $(".js-ecology").hide();
     }
 
@@ -100,7 +100,7 @@ function fillRatingCard(ratingData) {
         $(".js-card-section-noise").append(ecology.noises.map(function (i) {
             return getNoiseInfo(i);
         }).join(""));
-    }else{
+    } else {
         $(".js-noise-summary").html(["нет превышений нормативов допустимого уровня шума"]);
         $(".js-noise").find(".fa").removeClass("fa-arrow-up").addClass("fa-arrow-down").hide();
         $(".js-card-section-noise").html("");
@@ -108,7 +108,10 @@ function fillRatingCard(ratingData) {
 
     var comodoties = ratingData.commodities;
 
-    $(".js-commodities-summary").html(["В 5 минутах ходьбы расположено. Банков:",comodoties.banks.length," аптек:",comodoties.chemists.length," ресторанов:",comodoties.restaurants.length," супермаркетов:",comodoties.supermarkets.length])
+    $(".js-commodities-summary").html(["В 5 минутах ходьбы банков: ", comodoties.banks.length, 
+                                       ", аптек: ", comodoties.chemists.length,
+                                       ", ресторанов: ", comodoties.restaurants.length,
+                                       ", супермаркетов: ", comodoties.supermarkets.length])
 
     $(".js-card-section-commodities").append(getHeader("Банки"));
     $(".js-card-section-commodities").append(comodoties.banks.map(function (i) {
@@ -133,7 +136,7 @@ function fillRatingCard(ratingData) {
 
     var price = ratingData.apartments;
 
-    $(".js-cost").html([price.purchase,"₽ за м"]);
-    $(".js-rent").html([price.rent,"₽ за м"]);
+    $(".js-cost").html(["₽", price.purchase," за м<sup>2</sup>"]);
+    $(".js-rent").html(["₽", price.rent," за м<sup>2</sup>"]);
 
 }
