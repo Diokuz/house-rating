@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39f6c73f-153e-49ae-99eb-b71cc6bbb8e2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/dima.js" afterPath="$PROJECT_DIR$/static/dima.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/maksim.js" afterPath="$PROJECT_DIR$/static/maksim.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.htm" afterPath="$PROJECT_DIR$/views/index.htm" />
     </list>
     <ignored path="Source.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,13 +24,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.htm" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.htm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45076925">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="26" />
+            <state vertical-scroll-proportion="-9.6603775">
+              <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="55" />
               <folding>
-                <element signature="n#div#0;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -41,25 +43,44 @@
         <entry file="file://$PROJECT_DIR$/static/dima.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maksim.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="maksim.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/maksim.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.4110953">
+              <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding>
-                <marker date="1466331838000" expanded="true" signature="66:332" placeholder="..." />
-                <marker date="1466331838000" expanded="true" signature="107:313" placeholder="..." />
-                <marker date="1466331838000" expanded="true" signature="149:294" placeholder="..." />
-                <marker date="1466331838000" expanded="true" signature="407:722" placeholder="..." />
-                <marker date="1466331838000" expanded="true" signature="448:703" placeholder="..." />
-                <marker date="1466331838000" expanded="true" signature="490:684" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="66:332" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="107:313" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="149:294" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="407:722" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="448:703" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="490:684" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="795:958" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="836:939" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="878:920" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1033:1231" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1074:1212" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1116:1193" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1298:1469" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1339:1450" placeholder="..." />
+                <marker date="1466334992000" expanded="true" signature="1381:1431" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EcmaScript.js" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,18 +145,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0093458">
-              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-              <folding>
-                <marker date="1466331700000" expanded="true" signature="317:321" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -157,8 +166,8 @@
         <option value="$PROJECT_DIR$/static/fonts/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/static/main.scss" />
         <option value="$PROJECT_DIR$/static/vasya.js" />
-        <option value="$PROJECT_DIR$/views/index.htm" />
         <option value="$PROJECT_DIR$/static/dima.js" />
+        <option value="$PROJECT_DIR$/views/index.htm" />
         <option value="$PROJECT_DIR$/static/maksim.js" />
       </list>
     </option>
@@ -475,32 +484,52 @@
     <entry file="file://$PROJECT_DIR$/static/dima.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/maksim.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-          <folding>
-            <marker date="1466331838000" expanded="true" signature="66:332" placeholder="..." />
-            <marker date="1466331838000" expanded="true" signature="107:313" placeholder="..." />
-            <marker date="1466331838000" expanded="true" signature="149:294" placeholder="..." />
-            <marker date="1466331838000" expanded="true" signature="407:722" placeholder="..." />
-            <marker date="1466331838000" expanded="true" signature="448:703" placeholder="..." />
-            <marker date="1466331838000" expanded="true" signature="490:684" placeholder="..." />
-          </folding>
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45076925">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="26" />
+        <state vertical-scroll-proportion="-9.6603775">
+          <caret line="100" column="28" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="55" />
           <folding>
-            <element signature="n#div#0;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#section#1;n#article#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/maksim.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4110953">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding>
+            <marker date="1466334992000" expanded="true" signature="66:332" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="107:313" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="149:294" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="407:722" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="448:703" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="490:684" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="795:958" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="836:939" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="878:920" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1033:1231" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1074:1212" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1116:1193" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1298:1469" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1339:1450" placeholder="..." />
+            <marker date="1466334992000" expanded="true" signature="1381:1431" placeholder="..." />
           </folding>
         </state>
       </provider>
