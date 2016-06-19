@@ -105,7 +105,6 @@ footer {
   top: 20px;
   left: 20px;
   bottom: 0;
-  overflow-y: auto;
   z-index: 999;
   /*opacity: 0.5;*/ }
 
@@ -167,13 +166,22 @@ footer {
     padding: 12px 20px 10px 55px; }
 
 .card__header {
+  font-size: 14px;
   background-color: rgba(20, 20, 20, 0.1);
   padding: 14px 20px;
   text-transform: uppercase; }
 
 .card__body {
+  overflow: hidden;
   background-image: linear-gradient(2deg, #b4ec51, #429321);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.07);
   border-radius: 5px; }
+.card._good .card__body {
+  background-image: linear-gradient(2deg, #b4ec51, #429321); }
+.card._normal .card__body {
+  background-image: linear-gradient(2deg, #fad961, #f76b1c); }
+.card._bad .card__body {
+  background-image: linear-gradient(356deg, #f55151, #9f0404); }
 
 .card__body-inner {
   display: flex;
@@ -182,6 +190,7 @@ footer {
   padding: 20px 20px 16px 20px; }
 
 .card__value {
+  font-weight: 100;
   font-size: 60px;
   letter-spacing: -1px;
   margin-right: 20px;
@@ -213,6 +222,7 @@ footer {
   border: none; }
 
 .card__line-cut {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   padding: 20px; }

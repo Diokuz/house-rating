@@ -2,14 +2,32 @@ $(function() {
     var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru';
     var geoApi = 'http://catalog.api.2gis.ru/geo/get';
     var geoSearchApi = 'http://catalog.api.2gis.ru/geo/search';
-    var backend = 'http://139.59.141.142/rating'
+    var backend = 'http://139.59.141.142/rating';
 
     function sendRequest(lng, lat) {
         $.getJSON(backend, { lng: lng, lat: lat }, function(data) {
             console.log('data', data);
             fillRatingCard(data);
+            fillGreen(data);
             // Вызов функции заполнения карточки и карты
         });
+    }
+
+    function fillGreen(ratingData) {
+        $(".js-rating-value").text(ratingData.rating);
+        $(".js-card-header").text($(".js-find-input").val());
+        $(".js-find-input").val("");
+
+        var mod = '_bad';
+
+        if (ratingData.rating > 4) mod = '_normal';
+        if (ratingData.rating > 7) mod = '_good';
+
+        $('.card')
+            .removeClass('_bad')
+            .removeClass('_normal')
+            .removeClass('_normal')
+            .addClass(mod);
     }
 
     $('.js-find-input').autoComplete({
