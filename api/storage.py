@@ -113,7 +113,3 @@ def get_ecology(coordinates):
     ret['noises'] = noises
 
     return ret
-
-if __name__ == '__main__':
-    # test
-    print json.dumps(get_ecology([10, 20]), encoding='utf-8')

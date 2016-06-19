@@ -11,6 +11,7 @@ from twisted.internet import reactor
 
 import json
 import sys
+import math
 
 
 def make_error_message(reason):
@@ -24,6 +25,9 @@ class GetRating(Resource):
             latitude = float(request.args['lat'][0])
             longitude = float(request.args['lng'][0])
 
+            if math.isnan(latitude) or math.isnan(longitude):
+                raise ValueError('Thou shall not pass!')
+
             print 'get rating for {},{}'.format(latitude, longitude)
 
             request.setHeader('Access-Control-Allow-Origin', '*')
@@ -36,7 +40,7 @@ class GetRating(Resource):
         except ValueError as e:
             print e
             request.setResponseCode(400)
-            return make_error_message('GET argument "id" must be integer')
+            return make_error_message('GET arguments "lat" and "lng" must be floats (not NaNs!)')
         except KeyError as e:
             request.setResponseCode(400)
             return make_error_message(str(e))
