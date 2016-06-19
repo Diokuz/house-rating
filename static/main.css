@@ -252,7 +252,7 @@ footer {
   padding: 20px 20px 16px 20px; }
 
 .card__value {
-  text-align: center;
+  /*text-align: center;*/
   font-weight: 100;
   font-size: 60px;
   letter-spacing: -1px;
@@ -397,6 +397,29 @@ footer {
 }
 .cl__trans {
   opacity: 0.3;
+}
+
+.aver {
+  color: #000;
+  display: flex;
+  flex-direction: row;
+}
+.aver__item {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 20px;
+}
+.aver__item:first-of-type {
+  border-right: 1px solid #e8e8e8;
+}
+.aver__price {
+  font-weight: 100;
+  font-size: 24px;
+  font-weight: 32px;
 }
 
 @media (max-width: 600px) {
