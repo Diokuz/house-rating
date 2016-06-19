@@ -174,6 +174,7 @@ footer {
   color: #000;
   border-radius: 5px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.07);
+  overflow: auto;
   display: none; }
 .card._home .card__home {
   display: block; }
@@ -353,4 +354,15 @@ footer {
 }
 .autocomplete-suggestion.selected {
   background-color: #f7f6ee;
+}
+
+@media (max-width: 600px) {
+  .plate {
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
