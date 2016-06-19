@@ -11,7 +11,8 @@ def calc_rating(house_stats):
         # 3. is the place free of the noise sources (in the radius of 0.5 km)?
         (len(house_stats['ecology']['noises']) == 0),
         # 4. are there green plants around (y/n)?
-        (len(house_stats['ecology']['plants']) != 0),
+        (len(house_stats['ecology']['plants']) != 0 \
+            and house_stats['ecology']['plants'][0]['plantQuality'] >= 50.0),
         # 5. are there pharmacies around?
         (len(house_stats['commodities']['chemists']) != 0),
         # 6. are there food stores/supermarkets?

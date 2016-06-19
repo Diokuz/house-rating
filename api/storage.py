@@ -85,8 +85,8 @@ def get_ecology(coordinates):
                 '$nearSphere': {
                     '$geometry': {
                         'type': 'Point',
-                        'coordinates': coordinates},
-                    '$maxDistance': 1000}}})
+                        'coordinates': coordinates}}}},
+             limit=1)
 
     plants = []
     for obj in objs:
