@@ -11,5 +11,11 @@ function focusMap(lat, lng)
         minZoom: 10
     });
 
-    DG.marker([lat, lng]).addTo(gisMap);
+    if (gisMarker == null) {
+        gisMarker = DG.marker([lat, lng]);
+        gisMarker.addTo(gisMap);
+    } else {
+        gisMarker.setLatLng({'lat': lat, 'lng': lng});
+    }
+    
 }
