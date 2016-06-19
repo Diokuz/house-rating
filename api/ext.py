@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
+#
+# This module contains functions used to query external services
+#
 
 import storage
 import config
@@ -19,6 +22,10 @@ get_googlemaps_client.value = None
 
 
 def get_transit_time_to_center(departure_point):
+    """
+        Query the time needed to get to departure_point by public transport
+        Source: Google Maps
+    """
     gm = get_googlemaps_client()
     duration_data = gm.distance_matrix(
         origins=departure_point,
@@ -37,6 +44,10 @@ def get_transit_time_to_center(departure_point):
 
 
 def get_drive_time_to_center(departure_point):
+    """
+        Query the time needed to get to departure_point by car
+        Source: Google Maps
+    """
     gm = get_googlemaps_client()
     duration_data = gm.distance_matrix(
         origins=departure_point,
@@ -59,6 +70,11 @@ def get_drive_time_to_center(departure_point):
 
 
 def get_house_info_by_id(id):
+    """
+        Gets all the house info needed in our service.
+        Input: id — 2GIS building identifier.
+        Sources: 2GIS, Google Maps, and our own awesome dataset.
+    """
     def get_coords(centroid_str):
         values = re.split('POINT\((\d+\.\d+)\ +(\d+\.\d+)\)', centroid_str)
         return [float(values[2]), float(values[1])]
@@ -100,6 +116,8 @@ def get_house_info_by_id(id):
     ret['education'] = {
         'schoolsNearby': storage.get_schools_nearby(coords_reversed)
     }
+
+    ret['ecology'] = storage.get_ecology(coords_reversed)
 
     return ret
 
