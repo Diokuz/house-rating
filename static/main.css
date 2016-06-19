@@ -17,11 +17,12 @@
   cursor: pointer; }
 
 body {
+  -webkit-font-smoothing: antialiased;
   background-color: #f1f2f0;
   color: white;
   display: flex;
   justify-content: center;
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Roboto', sans-serif; }
 
 .main-app-container {
   padding-top: 2em; }
@@ -239,3 +240,25 @@ footer {
   transition: all .3s ease-out; }
 
 /*# sourceMappingURL=main.css.map */
+
+
+
+.autocomplete-suggestions {
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate3d(0, 4px, 0);
+  border: none;
+}
+.autocomplete-suggestion {
+  padding: 20px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #939393;
+  border-bottom: 1px solid #e8e8e8;
+}
+.autocomplete-suggestion.selected {
+  background-color: #f7f6ee;
+}
