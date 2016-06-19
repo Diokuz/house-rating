@@ -223,12 +223,14 @@ footer {
     padding: 12px 40px 10px 55px; }
 
 .card__header {
+  letter-spacing: 1px;
   font-size: 14px;
   background-color: rgba(20, 20, 20, 0.1);
   padding: 14px 20px;
   text-transform: uppercase; }
 
 .card__body {
+  position: relative;
   flex: 0 0 auto;
   display: none;
   overflow: hidden;
@@ -252,7 +254,7 @@ footer {
   padding: 20px 20px 16px 20px; }
 
 .card__value {
-  /*text-align: center;*/
+  text-align: center;
   font-weight: 100;
   font-size: 60px;
   letter-spacing: -1px;
@@ -262,9 +264,9 @@ footer {
   flex: 1 1 auto; }
 
 .card__shared {
-  padding: 10px;
-  border-radius: 20px;
-  border: 2px solid white;
+  position: absolute;
+  top: 14px;
+  right: 10px;
   font-size: 14px;
   cursor: pointer; }
 

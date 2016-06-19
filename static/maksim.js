@@ -148,7 +148,7 @@ function fillRatingCard(ratingData) {
 
     var price = ratingData.apartments;
 
-    $(".js-cost").html(["₽", price.purchase," за м<sup>2</sup>"]);
-    $(".js-rent").html(["₽", price.rent," за м<sup>2</sup>"]);
+    $(".js-cost").html([price.purchase,"₽ за м<sup>2</sup>"]);
+    $(".js-rent").html([price.rent,"₽ за м<sup>2</sup>"]);
 
 }
