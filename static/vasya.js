@@ -11,5 +11,5 @@ function unfocusMap()
 
 function focusMap(lat, lng)
 {
-    gisMap.flyTo([lat, lng], 15);
+    gisMap.flyTo({lat: lat, long: lng}, 15);
 }
