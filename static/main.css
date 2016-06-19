@@ -400,6 +400,12 @@ footer {
 .cl__trans {
   opacity: 0.3;
 }
+.cl__yellow {
+  color: #AC9E15;
+}
+.cl__green {
+  color: #738314;
+}
 
 .aver {
   color: #000;
