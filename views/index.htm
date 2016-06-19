@@ -1,1 +1,171 @@
-Hello, world!
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/main.css">
+    <link rel="stylesheet" href="../static/fonts/font-awesome.min.css">
+</head>
+<body>
+<div class="main-app-container">
+    <div class="plate">
+        <form class="finder">
+            <div class="finder__input-wrapper">
+                <input autocomplete="off" class="js-find-input finder__input" type="text" name="address" placeholder="Адрес дома">
+                <div class="js-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </div>
+        </form>
+        <noscript></noscript>
+        <article class="js-main-card card hidden">
+            <section class="card__body">
+                <header class="js-card-header card__header"></header>
+                <div class="card__body-inner">
+                    <div class="js-rating-value card__value"></div>
+                    <div class="card__hint">
+                        <span>Входит в 18% </span>
+                        <span class="card__mark _best">лучших</span>
+                        <span> домов Москвы</span>
+                    </div>
+                    <div class="card__shared">Поделиться с друзьями</div>
+                </div>
+            </section>
+            <section class="card__rating">
+                <div class="card__line js-expand hoverable">
+                    <div class="card__line-cut">
+                        <div class="card__line-rating"></div>
+                        <div class="card__line-desc">
+                            <span><b>Удаленность</b></span>
+                            <span class="js-transport-summary"></span>
+                        </div>
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="card__extended card__line hidden">
+                    <div class="card__line">
+                        <div class="card__line-cut">
+                            <div class="card__line-desc js-traffic-info">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__line">
+                        <div class="card__line-cut">
+                            <div class="card__line-desc">
+                                <a href="#nogo">1.2</a>
+                                <span>км до метро</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__line">
+                        <div class="card__line-cut">
+                            <div class="card__line-desc">
+                                <a href="#nogo">1.2</a>
+                                <span>км до метро</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </div>
+    <div id="map" class="map-container">
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="http://maps.api.2gis.ru/2.0/loader.js"></script>
+<script src="../static/index.js"></script>
+<script>
+    var apiUrl = 'http://139.59.141.142/rating?';
+    var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru&q=';
+    var gisMap = {};
+
+
+    function getMetroInfo(metro){
+        var item ='<div class="card__line">'+
+            '<div class="card__line-cut">'+
+                '<div class="card__line-desc">'+
+                    '<a href="#nogo">1.2</a>'+
+                    '<span>км до метро</span>'+
+                '</div>'+
+            '</div>'+
+        '</div>'
+    }
+
+
+    function setRating(ratingData){
+        $(".js-rating-value").text(ratingData.rating);
+        $(".js-card-header").text($(".js-find-input").val());
+        $(".js-find-input").val("");
+
+
+        var auto = ratingData.auto;
+        var transport = ratingData.transport;
+        var metro = transport.nearestMetroStations
+        var busStop = transport.nearestBusStop;
+        $(".js-transport-summary").html([metro[0].walkTime," мин. до м. ",metro[0].name,", ",auto.driveToCenterTime," мин. до ТТК"]);
+        $(".js-traffic-info").html([auto.driveToCenterTime," мин. до ТТК без пробок и ",auto.driveToCenterInTraffic," мин с пробками"]);
+
+        $(".js-main-card").removeClass("hidden");
+    }
+
+
+    $(function(){
+        $(".js-expand").on("click",function(e){
+            var self = $(this);
+
+            if(self.find(".fa").hasClass("fa-arrow-up")){
+
+                self.find(".fa").removeClass("fa-arrow-up").addClass("fa-arrow-down");
+                self.next(".card__extended").slideDown(500);
+            }else {
+                self.find(".fa").removeClass("fa-arrow-down").addClass("fa-arrow-up");
+                self.next(".card__extended").slideUp(500);
+            }
+        });
+
+
+        $(".js-search").on("click",function(){
+            var value = $(".js-find-input").val();
+
+            $.get("http://catalog.api.2gis.ru/2.0/geo/search",{
+                key:"ruvszz7964",
+                q:value,
+                fields:"items.geometry.selection"
+            },function(response){
+                var result = response.result;
+                var items = result.items;
+                if(response && result && items && items.length){
+
+                    var house = items[0];
+                    var coords = house.geometry.selection.replace(/[POINT()]/g,"").split(" ").map(function(item){
+                        return Number(item);
+                    });
+
+                    $.get(apiUrl+["lng=",coords[0],"&lat=",coords[1]].join(""),{},function(ratingObject){
+                        setRating(ratingObject);
+                        gisMap.setView([coords[1],coords[0]]);
+                        DG.marker([coords[1],coords[0]]).addTo(gisMap).bindPopup(value);
+                    })
+                }
+            })
+
+        });
+
+
+    });
+
+    DG.then(function () {
+        gisMap = DG.map('map', {
+            center: [55.754983,37.618506],
+            zoom: 20,
+            fullscreenControl: false,
+            zoomControl: false
+        });
+    });
+</script>
+</body>
+</html>
