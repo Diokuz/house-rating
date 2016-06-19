@@ -108,7 +108,7 @@ function fillRatingCard(ratingData) {
 
     var comodoties = ratingData.commodities;
 
-    $(".js-commodities-summary").html(["В 5 минутах хотьбы расположено. Банков:",comodoties.banks.length," аптек:",comodoties.chemists.length," ресторанов:",comodoties.restaurants.length," супермаркетов:",comodoties.supermarkets.length])
+    $(".js-commodities-summary").html(["В 5 минутах ходьбы расположено. Банков:",comodoties.banks.length," аптек:",comodoties.chemists.length," ресторанов:",comodoties.restaurants.length," супермаркетов:",comodoties.supermarkets.length])
 
     $(".js-card-section-commodities").append(getHeader("Банки"));
     $(".js-card-section-commodities").append(comodoties.banks.map(function (i) {
@@ -131,5 +131,9 @@ function fillRatingCard(ratingData) {
         return getCommoditiInfo(i);
     }).join(""));
 
+    var price = ratingData.apartments;
+
+    $(".js-cost").html([price.purchase,"₽ за м"]);
+    $(".js-rent").html([price.rent,"₽ за м"]);
 
 }
