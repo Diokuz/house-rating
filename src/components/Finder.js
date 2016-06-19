@@ -52,7 +52,7 @@ export default class Finder extends Component {
             className="finder__input"
             type="text"
             name="address"
-            placeholder="Адрес дома" />
+            placeholder="Василисы Кожиной, 6к2" />
         </div>
       </form>
     );
