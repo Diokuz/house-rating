@@ -32,7 +32,7 @@ def get_nearest_metro_stations(coordinates):
         stations.append({
             'name': obj['obj']['name'],
             'location': coords,
-            'distance': float(obj['dis']),
+            'distance': round(float(obj['dis']), 1),
             'walkTime': int(float(obj['dis']) * 15),
             'prices': {
                 'rent': obj['obj']['price']['rent'],
