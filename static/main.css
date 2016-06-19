@@ -367,6 +367,13 @@ footer {
   background: url(../static/logotype.svg);
 }
 
+.cl__blue {
+  color: #175897;
+}
+.cl__red {
+  color: #91241D;
+}
+
 @media (max-width: 600px) {
   .plate {
     width: 100%;
