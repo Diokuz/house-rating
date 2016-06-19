@@ -7,7 +7,7 @@ $(function() {
     function sendRequest(lng, lat) {
         $.getJSON(backend, { lng: lng, lat: lat }, function(data) {
             console.log('data', data);
-
+            fillRatingCard(data);
             // Вызов функции заполнения карточки и карты
         });
     }
