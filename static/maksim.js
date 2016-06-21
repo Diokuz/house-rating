@@ -1,5 +1,5 @@
 function getMetroInfo(metro) {
-    return '<div class="card__line">' +
+    return '<div class="card__line js-metro-item">' +
         '<div class="card__line-cut">' +
         '<div class="card__line-desc">' +
         metro.distance + ' км, <a href="#nogo">' + nearestTimeFormat(metro.walkTime) + '</a> до метро "' + metro.name + '"' +
@@ -63,6 +63,8 @@ function fillRatingCard(ratingData) {
     var schoolsArr = ratingData.education.schoolsNearby;
     var ecology = ratingData.ecology;
 
+
+    $(".js-metro-item").remove();
     $(".js-transport-summary").html([
         '<span class="emodzi man"></span><span class="cl__blue">' + nearestTimeFormat(metros[0].walkTime) + '</span>',
         " до м. \"",
@@ -78,7 +80,7 @@ function fillRatingCard(ratingData) {
         return getMetroInfo(i);
     }).join("");
 
-    $(".js-card-section-metro").html("");
+
     $(".js-card-section-metro").append(metroHtml);
 
     if (schoolsArr.length) {
