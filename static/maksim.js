@@ -2,7 +2,7 @@ function getMetroInfo(metro) {
     return '<div class="card__line js-metro-item">' +
         '<div class="card__line-cut">' +
         '<div class="card__line-desc">' +
-        metro.distance + ' км, <a href="#nogo">' + nearestTimeFormat(metro.walkTime) + '</a> до метро "' + metro.name + '"' +
+        metro.distance + ' км, <span class="cl__blue">' + nearestTimeFormat(metro.walkTime) + '</span> до метро "' + metro.name + '"' +
         '</div>' +
         '</div>' +
         '</div>';
@@ -85,21 +85,21 @@ function fillRatingCard(ratingData) {
 
     if (schoolsArr.length) {
         $(".js-education-summary").parent().next(".fa").show();
-        $(".js-education-summary").html(["Рядом есть несколько хороших школ <span class='emodzi school'></span>"]);
+        $(".js-education-summary").html(["Рядом есть несколько хороших <span class='emodzi school'></span> <span class='cl__yellow'>школ</span>"]);
 
         $(".js-card-section-edu").html("");
         $(".js-card-section-edu").append(schoolsArr.map(function (i) {
             return getSchoolInfo(i);
         }).join(""));
     } else {
-        $(".js-education-summary").html(["До ближайшей школы идти не менее 20 мин"]);
+        $(".js-education-summary").html(["До хорошей школы идти не менее 20 мин пешком"]);
         $(".js-education-summary").parent().next(".fa").removeClass("fa-arrow-up").addClass("fa-arrow-down").hide();
         $(".js-card-section-edu").html("");
     }
 
 
     if(ecology.plants && ecology.plants.length) {
-        $(".js-ecology-summary").html(["по данным экологической службы качество озеленения района — ",ecology.plants[0].plantQuality, " из 100 <span class='emodzi tree'></span>"])
+        $(".js-ecology-summary").html(["По данным экологической службы качество <span class='emodzi tree'></span> <span class='cl__green'>озеленения</span> района — ",ecology.plants[0].plantQuality, " из 100"])
     } else {
         $(".js-ecology").hide();
     }
@@ -113,17 +113,17 @@ function fillRatingCard(ratingData) {
             return getNoiseInfo(i);
         }).join(""));
     } else {
-        $(".js-noise-summary").html(["нет превышений нормативов допустимого уровня шума"]);
+        $(".js-noise-summary").html(["Нет превышений нормативов допустимого уровня шума"]);
         $(".js-noise").find(".fa").removeClass("fa-arrow-up").addClass("fa-arrow-down").hide();
         $(".js-card-section-noise").html("");
     }
 
     var comodoties = ratingData.commodities;
 
-    $(".js-commodities-summary").html(["<span class='emodzi house'></span>  В 5 минутах ходьбы банков: ", comodoties.banks.length,
-                                       ", аптек: ", comodoties.chemists.length,
-                                       ", ресторанов: ", comodoties.restaurants.length,
-                                       ", супермаркетов: ", comodoties.supermarkets.length]);
+    $(".js-commodities-summary").html([" В 5 минутах ходьбы банков – ", comodoties.banks.length,
+                                       ", аптек – ", comodoties.chemists.length,
+                                       ", ресторанов – ", comodoties.restaurants.length,
+                                       ", супермаркетов – ", comodoties.supermarkets.length]);
 
     $(".js-card-section-commodities").html("");
 
@@ -149,8 +149,12 @@ function fillRatingCard(ratingData) {
     }).join(""));
 
     var price = ratingData.apartments;
+    function numberWithSpaces(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+    // var ahaha = price.purchase.toString().
 
-    $(".js-cost").html(["₽", price.purchase," за м<sup>2</sup>"]);
-    $(".js-rent").html(["₽", price.rent," за м<sup>2</sup>"]);
+    $(".js-cost").html([numberWithSpaces(price.purchase)," ₽ за м<sup>2</sup>"]);
+    $(".js-rent").html([numberWithSpaces(price.rent)," ₽ за м<sup>2</sup>"]);
 
 }
