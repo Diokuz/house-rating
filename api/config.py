@@ -6,7 +6,7 @@
 # Please feel free to modify them so they fit your configuration.
 ###
 
-DB_HOST = '139.59.141.142'
+DB_HOST = 'localhost'
 DB_PORT = 27017
 DB_NAME = 'house_rating'
 DB_COLLECTION = ''

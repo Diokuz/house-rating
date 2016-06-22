@@ -2,7 +2,7 @@ $(function() {
     var suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru';
     var geoApi = 'http://catalog.api.2gis.ru/geo/get';
     var geoSearchApi = 'http://catalog.api.2gis.ru/geo/search';
-    var backend = 'http://139.59.141.142/rating';
+    var backend = '/rating';
 
     function sendRequest(lng, lat) {
         unfocusMap();

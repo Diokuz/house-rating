@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Suggest from '../components/Suggest';
 
-const apiUrl = 'http://139.59.141.142:8088/rating?id=1';
+const apiUrl = '/rating?id=1';
 const suggestApi = 'https://catalog.api.2gis.ru/2.0/suggest/list?key=ruczoy1743&region_id=32&lang=ru&q='
 
 export default class Finder extends Component {
